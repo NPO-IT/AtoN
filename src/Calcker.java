@@ -10,8 +10,6 @@ public class Calcker {
     private int stepOutGins=1;
     private int masgMax;
 
-
-
     public void outToTextArea(int numOutElemG,int stepOutGins){
         final int OUTSTEP=10;
         final int MAXGROUPINCIKL=32;
@@ -24,15 +22,12 @@ public class Calcker {
         int iGrF;
         //номер цикла
         int iC;
-
-
         //для нумерации с 0 переданный номер точки с 1 уменьшаем на 1
         i=numOutElemG-1;
-
         //производим вывод для 1 кадра 4 цикла по 32 группы
         //вычисляем номер первой группы
         iGr=(int)Math.floor((i+1)/masgMax);
-        iGrF=iGr;
+        //iGrF=iGr;
         //вычисляем номер первого цикла
         iC=(int)Math.floor(iGr/MAXGROUPINCIKL);
         //вычисляем номер точки в первой группе
@@ -41,7 +36,6 @@ public class Calcker {
         iGrF=iGr;
         iC++;
         m=i;
-
         if (iC<=MAXCIKLINKADR){
             while (iC<=MAXCIKLINKADR){
                 if (iGr<=MAXGROUPINCIKL){
@@ -75,7 +69,6 @@ public class Calcker {
         }
         GUI.freqJl.setText("Частота введенного параметра: "+Integer.toString(j)+" Гц");
     }
-
 
     public void culk(String adrS){
         switch (adrAnalizer(adrS)){
@@ -441,7 +434,6 @@ public class Calcker {
     private boolean checkParam(String adrStr,int iGraph){
         if (((adrStr.codePointAt(iGraph+1))>=48)&&((adrStr.codePointAt(iGraph+1))<=57)){
             String s=new String(adrStr.substring(iGraph+1,iGraph+2));
-
             if ((Integer.parseInt(s)>8)||(Integer.parseInt(s)<1)){
                 return false;
             }
@@ -452,30 +444,6 @@ public class Calcker {
         }else{
             return false;
         }
-
         return true;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

@@ -28,9 +28,6 @@ public class GUI extends JFrame {
         this.inf = inf;
     }
 
-
-
-
     GUI(){
         setTitle("AntoN");
         //завершили при закрытии
@@ -251,11 +248,8 @@ public class GUI extends JFrame {
         jButton.setPreferredSize(new Dimension(150,70));
         add(jButton);
 
-
         jButton.setAlignmentX(CENTER_ALIGNMENT);
         add(freqJl);
-
-
         //задаем поле отчета в конструкторе передаем его размеры в строках и столбцах
         jTarea=new JTextArea(20,1);
         //add(jTarea);
@@ -264,8 +258,6 @@ public class GUI extends JFrame {
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
         add(scrollPane);
-
-
         adrElemListLb.add(lbThread);
         adrElemListTf.add(tfThread);
         adrElemListLb.add(lbA);
@@ -289,7 +281,6 @@ public class GUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 //очистка предидущего состояния
                 jTarea.setText(null);
-
                 adrStr=new StringBuilder("");
                 //получаем информативность
                 for (JRadioButton jrb:jRbArr) {
@@ -300,10 +291,6 @@ public class GUI extends JFrame {
                         break;
                     }
                 }
-
-
-
-
                 Boolean testStringFlag=true;
                 for(int i=0;i<adrElemListLb.size();i++){
                     String str=adrElemListTf.get(i).getText();
@@ -326,7 +313,6 @@ public class GUI extends JFrame {
                         adrStr.append(adrElemListTf.get(i).getText());
                     }
                 }
-
                 //проверим строку на правильность
                 String str=new  String(adrStr);
                 //уберем все цифры, а также все буквы М и П
@@ -354,7 +340,6 @@ public class GUI extends JFrame {
                         break;
                     };
                 }
-
                 if (testStringFlag){
                     //Выводим адрес
                     jTarea.append(new String("Адрес "+adrStr).concat("\n"));
@@ -365,10 +350,8 @@ public class GUI extends JFrame {
                     jTarea.append(new String("Адрес "+adrStr).concat("\n"));
                     jTarea.append("Тфу тфу. Такое есть не буду!");
                 }
-
             }
         });
-
         // Слушатель события о смене состояния на M16
         jRbArr[0].addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent e) {
@@ -409,9 +392,7 @@ public class GUI extends JFrame {
                 };
             }
         });
-
         //скомпановать по контенту
         pack();
-
     }
 }
